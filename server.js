@@ -24,9 +24,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   credentials: true,
-  origin: 'https://bangoo-deploy.herokuapp.com/', 
-  allowedHeaders: ["Content-Type","Authorization","X-Requested-With","X-Forwarded-Proto", "Cookie","Set-Cookie"],
-  exposedHeaders: ["Content-Type","Authorization","X-Requested-With","X-Forwarded-Proto","Cookie","Set-Cookie"]
+  origin: 'https://bangoo-deploy.herokuapp.com/'
 }))
 app.use(cookieParser())
 app.use(session({

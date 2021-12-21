@@ -39,5 +39,5 @@
     "supertest": "^6.1.6",
     "validator": "^13.6.0"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://bangoo-deploy.herokuapp.com/"
 }
