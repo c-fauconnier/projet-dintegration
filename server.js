@@ -45,7 +45,52 @@ app.use(function(req,res,next) {
 })
 
 // routes
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Panier', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Profile', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Boutique', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Marché', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Articles', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Vendeurs', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Checkout', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Contact', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/GPU', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/ListeCommerce', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Produit', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/ContactAdmin', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Login', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Register', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
+});
+app.get('/Forgotpassword', function(req, res) {
   res.sendFile('index.html', {root: path.join(__dirname, './frontend/build/')});
 });
 app.use('/api/user', userRoutes);
