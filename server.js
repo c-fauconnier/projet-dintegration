@@ -45,7 +45,9 @@ app.use(function(req,res,next) {
 })
 
 // routes
-
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 app.use('/api/user', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/offers', offerRoutes);
