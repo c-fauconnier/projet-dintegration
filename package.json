@@ -7,6 +7,7 @@
     "start": "nodemon app",
     "test": "jest --forceExit",
     "test:watch": "jest --watch",
+    "heroku-prebuild": "npm install",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "author": "",
