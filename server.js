@@ -34,7 +34,7 @@ app.use(session({
   store: MongoStore.create({
     mongoUrl: process.env.MONGODB_URL
   }),
-  cookie: { maxAge: 1000 * 60 * 60 * 24, secure:false } //dure une journée
+  cookie: { maxAge: 1000 * 60 * 60 * 24, secure:true } //dure une journée
 }))
 app.use(fileUpload({
   useTempFiles: true
