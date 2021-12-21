@@ -15,6 +15,10 @@ const verifRoutes = require('./routes/verif.routes');
 const contactRoutes = require('./routes/contact.routes');
 
 const app = express()
+
+const path = require('path')
+app.use(express.static(path.resolve(__dirname, "./frontend/build")));
+
 app.use(flash());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
