@@ -5,16 +5,6 @@ var Cart = require('../models/Cart');
 var Order = require('../models/Order');
 flash = require('express-flash')
 
-router.get('/', function (req, res) {
-    Product.find(function (err, docs) {
-        var productChunks = [];
-        var chunkSize = 3;
-        for (var i = 0; i < docs.length; i += chunkSize) {
-            productChunks.push(docs.slice(i, i + chunkSize));
-        }
-        res.json({title: 'Shopping Cart', products: productChunks, successMsg: successMsg, noMessages: !successMsg});
-    });
-});
 
 router.get('/add-to-cart/:id', function(req, res, next) {
     var productId = req.params.id;
