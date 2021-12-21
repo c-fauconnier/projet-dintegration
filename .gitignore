@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-frontend/.eslintcache
-=======
+/node_modules
 
-backend/package-lock.json
-
-
-
-
-
-frontend/.eslintcache
->>>>>>> contact
+/mail/MailData.js
