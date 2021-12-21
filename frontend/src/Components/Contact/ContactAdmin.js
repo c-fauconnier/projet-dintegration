@@ -3,6 +3,7 @@ import axios from 'axios';
 import './ContactAdmin.css';
 import Modal from './Form'; 
 
+const API = 'https://bangoo-deploy.herokuapp.com/api/contact/'
 class ContactAdmin extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +27,7 @@ class ContactAdmin extends Component {
 
     //Au chargement de la page, récupération des reqêtes ouvertes et fermées
     componentDidMount() {
-        axios.get("http://localhost:5000/api/contact/open")
+        axios.get(API+"/open")
             .then((result) => {
                 this.setState({
                     openItems: result.data,
@@ -34,7 +35,7 @@ class ContactAdmin extends Component {
                 })
             })
 
-        axios.get("http://localhost:5000/api/contact/closed")
+        axios.get(API+"/closed")
         .then((result) => {
             this.setState({
                 closedItems: result.data,
@@ -46,7 +47,7 @@ class ContactAdmin extends Component {
     //Récupération des informations pour le formulaire
     handleOpenForm = event => {
         let id = event.target.id;
-        axios.get("http://localhost:5000/api/contact/request/" + id)
+        axios.get(API+"/request/" + id)
             .then((result) => {
                 gid("id-form").innerText = id;
                 gid("subject-form").innerHTML = result.data.subject;
@@ -66,7 +67,7 @@ class ContactAdmin extends Component {
         if(event.target.value === "open") stat = true;
         else stat = false;
         let data = {status: stat};
-        axios.put("http://localhost:5000/api/contact/status/" + event.target.id,
+        axios.put(API+"/status/" + event.target.id,
         data)
             .then(function(response) {
                 console.log(response);
@@ -89,7 +90,7 @@ class ContactAdmin extends Component {
     //Récupère le mail, le sujet et le message de la requête et puis appelle la fct sendMail si réussi
     getRequest(id, response, data) {
         let mail, message, subject;
-        axios.get("http://localhost:5000/api/contact/request/" + id)
+        axios.get(API+"/request/" + id)
             .then((result) => {
                 mail = result.data.mail;
                 subject = result.data.subject;
@@ -106,7 +107,7 @@ class ContactAdmin extends Component {
 
     //Envoie le mail avec les infos reçues et appelle la fct putRequest si réussi
     sendMail(mail, message, subject, response, data, id) {
-        axios.post("http://localhost:5000/api/contact/send/", {
+        axios.post(API+"/send/", {
             mail: mail,
             subject: subject,
             message: message,
@@ -125,7 +126,7 @@ class ContactAdmin extends Component {
 
     //Modifie les données dans la db
     putRequest(id, data) {
-        axios.put("http://localhost:5000/api/contact/" + id,
+        axios.put(API + id,
         data)
             .then(function(response) {
                 window.location.reload(false);

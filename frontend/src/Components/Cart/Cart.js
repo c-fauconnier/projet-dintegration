@@ -7,6 +7,8 @@ import {Button} from 'react-bootstrap'
 import { faMinus, faPlus, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+const API = 'https://bangoo-deploy.herokuapp.com/api/cart'
+
 class Cart extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +18,7 @@ class Cart extends Component {
         };
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/cart/shopping-cart',{
+        axios.get(API+'/shopping-cart',{
             withCredentials:true,
             })
             .then((result) => {
@@ -33,7 +35,7 @@ class Cart extends Component {
 
 
     cleanUp(){
-        axios.get('http://localhost:5000/api/cart/purge',{
+        axios.get(API+'/purge',{
             withCredentials:true,
             }
         )
@@ -42,7 +44,7 @@ class Cart extends Component {
 
     deleteArticle = (e) => {
         let id = e.currentTarget.id
-        axios.get('http://localhost:5000/api/cart/reduce/'+id, {
+        axios.get(API+'/reduce/'+id, {
             withCredentials:true
         })
         .then(res => {
@@ -53,7 +55,7 @@ class Cart extends Component {
                 let quantity = document.getElementById(id+'qty').innerHTML
                 let minus = Number(quantity) - 1
                 document.getElementById(id+'qty').innerHTML = minus
-                axios.get('http://localhost:5000/api/cart/shopping-cart',{
+                axios.get(API+'/shopping-cart',{
                     withCredentials:true,
                     })
                     .then((result) => {
@@ -68,7 +70,7 @@ class Cart extends Component {
     }
 
     removeArticle = (e) => {
-        axios.get('http://localhost:5000/api/cart/remove/'+e.currentTarget.id, {
+        axios.get(API+'/remove/'+e.currentTarget.id, {
             withCredentials:true
         })
         window.location.reload(false);
@@ -77,7 +79,7 @@ class Cart extends Component {
 
     addArticle = (e) =>{
         let id = e.currentTarget.id
-        axios.get('http://localhost:5000/api/cart/add-to-cart/'+id,{
+        axios.get(API+'/add-to-cart/'+id,{
             withCredentials:true,
             })
             .then(res => {
@@ -86,7 +88,7 @@ class Cart extends Component {
                     let quantity = document.getElementById(id+'qty').innerHTML
                     let somme = Number(quantity) + 1
                     document.getElementById(id+'qty').innerHTML = somme
-                    axios.get('http://localhost:5000/api/cart/shopping-cart',{
+                    axios.get(API+'/shopping-cart',{
                     withCredentials:true,
                     })
                     .then((result) => {
@@ -112,8 +114,7 @@ class Cart extends Component {
         const { items } = this.state;
             if(!this.state.isLoaded || items.products == null || items.products.length === 0){
                 return(
-                <>
-                    <div className="cart">
+                <div className="cart">
                     <div className="py-5">
                             <div className="container px-4 px-lg-5 mb-5">
                             <div className="row">
@@ -144,34 +145,33 @@ class Cart extends Component {
                                 </div>
                             </div>
                             </div>
-                            </div>
-                    </div>
-                    </div>
-                    <div className="row py-5 p-4 bg-white rounded shadow-sm">
-                    <div className="col-lg-6">
-                        <div className="bg-light rounded-pill px-4 py-3 text-uppercase fw-bold">Code promo</div>
-                        <div className="p-4">
-                        <p className="mb-4"><em>Si vous avez un code de réduction, utilisez le ci-dessous.</em></p>
-                        <div className="input-group mb-4 border rounded-pill p-2">
-                            <input type="text" placeholder="Code" aria-describedby="button-addon3" className="form-control border-0" />
-                            <button id="button-addon3" type="button" className="btn btn-dark px-4 rounded-pill"><i className="fa fa-gift mr-2"></i>Appliquer code</button>
+                            <div className="row py-5 p-4 bg-white rounded shadow-sm">
+                            <div className="col-lg-6">
+                                <div className="bg-light rounded-pill px-4 py-3 text-uppercase fw-bold">Code promo</div>
+                                <div className="p-4">
+                                <p className="mb-4"><em>Si vous avez un code de réduction, utilisez le ci-dessous.</em></p>
+                                <div className="input-group mb-4 border rounded-pill p-2">
+                                    <input type="text" placeholder="Code" aria-describedby="button-addon3" className="form-control border-0" />
+                                    <button id="button-addon3" type="button" className="btn btn-dark px-4 rounded-pill"><i className="fa fa-gift mr-2"></i>Appliquer code</button>
 
-                        </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-6">
+                                <div className="bg-light rounded-pill px-4 py-3 text-uppercase fw-bold">Résumé de commande</div>
+                                <div className="p-4">
+                                <p className="mb-4"><em>Les coûts supplémentaires sont calculés sur base du montant de votre commande.</em></p>
+                                <ul className="list-unstyled mb-4">
+                                    <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total</strong>
+                                    <h5 className="fw-bold">Votre panier est vide</h5>                            
+                                    </li>
+                                </ul>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-lg-6">
-                        <div className="bg-light rounded-pill px-4 py-3 text-uppercase fw-bold">Résumé de commande</div>
-                        <div className="p-4">
-                        <p className="mb-4"><em>Les coûts supplémentaires sont calculés sur base du montant de votre commande.</em></p>
-                        <ul className="list-unstyled mb-4">
-                            <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total</strong>
-                            <h5 className="fw-bold">Votre panier est vide</h5>                            
-                            </li>
-                        </ul>
-                        </div>
-                    </div>
-                    </div>
-                </>
+                </div>
                 )
             }
             return (

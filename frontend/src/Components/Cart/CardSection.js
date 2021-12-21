@@ -40,7 +40,7 @@ class Cart extends Component {
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:5000/api/cart/shopping-cart', {
+    axios.get('https://bangoo-deploy.herokuapp.com/api/cart/shopping-cart', {
       withCredentials: true,
     })
       .then((result) => {

@@ -6,6 +6,7 @@ import {Button} from 'react-bootstrap'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+const API = 'https://bangoo-deploy.herokuapp.com/api/offers'
 class Boutique extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +16,7 @@ class Boutique extends Component {
         };
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/offers')
+        axios.get(API)
             .then((result) => {
             this.setState({
                 isLoaded: true,

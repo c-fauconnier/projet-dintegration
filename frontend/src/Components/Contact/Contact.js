@@ -35,7 +35,7 @@ class Contact extends Component {
         subject = gid("msg_subject").value;
         message = gid("message").value;
 
-        axios.post("http://localhost:5000/api/contact/",
+        axios.post("https://bangoo-deploy.herokuapp.com/api/contact/",
         {mail: mail, subject: subject, message: message, status: true, response: ""})
             .then(function(response) { console.log(response) })
             .catch(function(err) { console.log(err)})

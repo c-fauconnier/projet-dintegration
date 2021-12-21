@@ -4,6 +4,7 @@ import './Product.css';
 import Product from "./Product";
 import { Button } from 'react-bootstrap';
 
+const API = 'https://bangoo-deploy.herokuapp.com/api/products'
 class ListCommerce extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +16,7 @@ class ListCommerce extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/api/products/')
+        axios.get(API)
             .then((result) => {
                 this.setState({ 
                     isLoaded: true,
@@ -28,7 +29,7 @@ class ListCommerce extends Component {
     }
 
     deleteProduct = (event) => {
-        axios.delete("http://localhost:5000/api/products/" + event.target.id)
+        axios.delete(API + "/" + event.target.id)
             .then((response) => {
                 this.componentDidMount();
                 window.location.reload(false);

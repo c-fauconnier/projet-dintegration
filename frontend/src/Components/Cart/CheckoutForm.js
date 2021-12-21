@@ -5,7 +5,7 @@ import './Cart.css';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
 
-
+const API = 'https://bangoo-deploy.herokuapp.com/api/cart/'
 
 function CheckoutForm() {
   const stripe = useStripe();
@@ -62,14 +62,14 @@ function CheckoutForm() {
     state.email = payload.paymentMethod.billing_details.email
     const order = {name: state.name, email: state.email, token: state.token}
     console.log(order)
-    axios.get('http://localhost:5000/api/cart/purge',{
+    axios.get(API+'/purge',{
             withCredentials:true,
             }
         )
       .then((res) => console.log('Order posted'),
       )
       .catch(err => {});
-    axios.post('http://localhost:5000/api/cart/checkout', order,{
+    axios.post(API+'/checkout', order,{
       withCredentials: true,
     },
     );
