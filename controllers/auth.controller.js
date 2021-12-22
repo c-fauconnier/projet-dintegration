@@ -150,8 +150,10 @@ const userCtrl = {
     },
     infos: async(req,res,next) =>{
         try{
-            const user = await UserModel.findById(req.user.id)
-            return res.json(user)
+            const userDB = await UserModel.findById(req.user.id);
+            req.session.user = userDB;
+            let user = req.session.user;
+            return res.json(user);
         } catch(err) {
             return res.status(500).json({msg : err.message})
         }
