@@ -71,8 +71,15 @@ export default class Profile extends Component {
           {currentUser.role}
         </p>
         <p>
-          <strong>Points client:</strong>{" "}
-          <span id='points'>{currentUser.points}</span>
+          <strong>Mes cadeaux</strong>{" "}
+          <div>
+            {currentUser.userOffers.map((offer) => (
+              <div>
+              <p>{offer.name}</p>
+              <p>{offer.description}</p>
+              </div>
+            ))}
+          </div>
         </p>
       </div>
       <div className="d-flex justify-content-around">
@@ -93,6 +100,7 @@ export default class Profile extends Component {
                     Historique des commandes
           </button>
         </div>
+        <div>
           <button
                 //type="submit"
                 className="btn btn-dark btn-bg"
@@ -101,6 +109,7 @@ export default class Profile extends Component {
                 >
                     Supprimer mon compte
           </button>
+        </div>
       </div>
     );
   }
