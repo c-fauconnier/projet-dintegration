@@ -47,6 +47,15 @@ export default class Profile extends Component {
 
   render() {
     const { currentUser } = this.state;
+    const ColoredLine = ({ color }) => (
+      <hr
+        style={{
+          color,
+          backgroundColor: color,
+          height: 5
+        }}
+      />
+    );
     if(!this.state.isLoaded){
       return (
         <div>chargement...</div>
@@ -76,10 +85,13 @@ export default class Profile extends Component {
           <strong>Mes cadeaux</strong>{" "}
           <div>
             {currentUser.userOffers.map((offer) => (
-              <p>
-              <div>{offer.name}</div>
-              <div>{offer.description}</div>
-              </p>
+              <>
+                <p>
+                <div>{offer.name}</div>
+                <div>{offer.description}</div>
+                </p>
+                <ColoredLine color="grey"/>
+              </>
             ))}
           </div>
         </p>

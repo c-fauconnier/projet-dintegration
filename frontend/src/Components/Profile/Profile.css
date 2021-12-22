@@ -1,8 +1,14 @@
 #Suppression {
+  margin-top: 5px;
   background-color: rgb(194, 22, 22);
   align-items: center;
 }
 .profil {
   margin-top: 10%;
   margin-bottom: 20%;
+}
+
+.btn-dark {
+  width: 50%;
+  margin: 2%;
 }
