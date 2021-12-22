@@ -6,15 +6,12 @@ const auth = require('../middleware/auth');
 
 
 
-router.route('/')
-      .get(productController.getProducts)
-      .post(productController.createProduct)
-
+router.get('/', auth,authShop, productController.getProducts)
 router.post('/', auth,authShop, productController.createProduct)
 
 router.route('/:id')
-      .get(productController.getProduct)
-      .delete(productController.deleteProduct)
+      .get(auth,authShop,productController.getProduct)
+      .delete(auth,authShop,productController.deleteProduct)
       .put(auth, productController.updateProduct)
 
 module.exports = router;

@@ -6,10 +6,10 @@ const authShop = async (req,res,next) => {
             _id : req.user.id
         })
 
-        if(user.role === "user" || user.role === "admin"){
+        if(user.role === "user"){
             return res.status(400).json({msg: "Not authorized." })
         }
-        else if(user.role === "seller"){
+        else if(user.role === "seller" || user.role === "admin"){
 
             next()
         }
