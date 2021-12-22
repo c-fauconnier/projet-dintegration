@@ -57,7 +57,7 @@ class Product extends Component {
         }
 
       
-        axios.post('http://localhost:5000/api/products/', data)
+        axios.post('https://bangoo-deploy.herokuapp.com/api/products/', data)
             .then(function (response) {
                 window.location.reload(false);
             })
