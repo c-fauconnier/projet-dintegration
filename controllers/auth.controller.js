@@ -168,7 +168,7 @@ const userCtrl = {
             let user = req.session.user;
             return res.json(user);
         } catch(err) {
-            return res.status(500).json({msg : err.message})
+            return res.json({points : 0})
         }
     },
     removeCurrentUser: async(req,res,next) =>{
