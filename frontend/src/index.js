@@ -18,8 +18,8 @@ import Profile from './Components/Profile/Profile';
 import Contact from "./Components/Contact/Contact";
 import Boutique from "./Components/Boutique/Boutique";
 import ContactAdmin from './Components/Contact/ContactAdmin';
-import Checkout from './Components/Cart/Checkout'
-
+import Checkout from './Components/Cart/Checkout';
+import Vendeurs from './Components/Vendeurs/Vendeurs';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -27,10 +27,9 @@ ReactDOM.render(
         <App />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/Marché" component={Home} />
           <Route path="/Articles" component={Shop} />
           <Route path="/Boutique" component={Boutique} />
-          <Route path="/Vendeurs" component={Home} />
+          <Route path="/Vendeurs" component={Vendeurs} />
           <Route path="/Checkout" component={Checkout}/>
           <Route path="/Contact" component={Contact} />
           <Route path="/GPU" component={GPU}/>
