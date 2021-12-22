@@ -40,9 +40,8 @@ class Boutique extends Component {
                         userPoints: result.data.points,
                     });
                 });
-        if(this.state.userPoints > 0){
-            this.intervalPoints = setInterval(this.getPoints, 1000);
-        }
+
+        this.intervalPoints = setInterval(this.getPoints, 1000);
     }
           
     componentWillUnmount() {
@@ -91,7 +90,7 @@ class Boutique extends Component {
         const { items } = this.state;
 
         if (!this.state.isLoaded) {
-          return <div>Chargement ... </div>;
+          return <div id='vosPoints'> Chargement ... </div>;
         } else {
           return (
             <div class="container py-5 my-5">

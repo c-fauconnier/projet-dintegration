@@ -74,10 +74,10 @@ export default class Profile extends Component {
           <strong>Mes cadeaux</strong>{" "}
           <div>
             {currentUser.userOffers.map((offer) => (
-              <div>
-              <p>{offer.name}</p>
-              <p>{offer.description}</p>
-              </div>
+              <p>
+              <div>{offer.name}</div>
+              <div>{offer.description}</div>
+              </p>
             ))}
           </div>
         </p>
