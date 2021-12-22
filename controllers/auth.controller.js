@@ -189,7 +189,6 @@ const userCtrl = {
             offer = await OfferModel.findById(req.params.id)
             console.log( "L'offre : " + offer)
 
-
             if(!user) return res.status(400).json({msg : "User does not exist."})
             if(!offer) return res.status(400).json({msg :"Offer does not exist."})
 

@@ -17,3 +17,16 @@
   margin-top: 5%;
   border-top: none;
 }
+
+.title {
+  font-size: 15px;
+  color: #5db674;
+}
+
+.description {
+  font-size: 13px;
+}
+
+.inner {
+  width: auto !important;
+}

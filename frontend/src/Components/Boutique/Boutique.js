@@ -40,7 +40,6 @@ class Boutique extends Component {
                         userPoints: result.data.points,
                     });
                 });
-
         this.intervalPoints = setInterval(this.getPoints, 1000);
     }
           
