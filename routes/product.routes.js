@@ -13,7 +13,7 @@ router.route('/')
 
 router.route('/:id')
       .get(productController.getProduct)
-      .delete(productController.deleteProduct)
-      .put(auth, productController.updateProduct)
+      .delete(authShop, productController.deleteProduct)
+      .put(authShop, productController.updateProduct)
 
 module.exports = router;
