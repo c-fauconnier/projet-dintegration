@@ -18,6 +18,7 @@ export default class BarNav extends Component {
         super(props);
         this.state = {
             currentUser: undefined,
+            currentSeller: undefined,
             currentAdmin: undefined,
             isLogged:false,
         };
@@ -38,6 +39,12 @@ export default class BarNav extends Component {
                         isLogged:true,
                     });
                 }
+                else if(result.data.role === "seller"){
+                    this.setState({
+                        currentSeller: result.data.role,
+                        isLogged:true,
+                    });
+                }
             });
       }
 
@@ -49,7 +56,7 @@ export default class BarNav extends Component {
     }
     
     render() {
-        const { currentUser, currentAdmin, isLogged } = this.state;
+        const { currentUser, currentSeller, currentAdmin, isLogged } = this.state;
         return (
             <div>
                 <Navbar bg="white" variant="light" fixed="top" expand="lg">
@@ -90,7 +97,18 @@ export default class BarNav extends Component {
                                 </a>
                             </li>
                             </div>
-                        )} 
+                        )}
+                        {currentSeller ==="seller" && (
+                            <div className="navbar-nav ml-auto">
+                                <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Produit"} >Produits</NavLink></Nav.Item>
+                                
+                            <li className="nav-item">
+                                <a href="/login" className="nav-link" onClick={this.logOut}>
+                                <img src={exit} width="37px" alt="account" className="mx-5"/>
+                                </a>
+                            </li>
+                            </div>
+                        )}  
                         {isLogged === false &&(
                             <div className="navbar-nav ml-auto">
                                 <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Login"} ><img src={account} width="37px" alt="account" className="mx-5"/></NavLink></Nav.Item>
