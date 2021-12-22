@@ -3,7 +3,7 @@ const UserModel = require('../models/User');
 const authShop = async (req,res,next) => {
     try{
         const user = await UserModel.findOne({
-            _id : req.session.user.id
+            _id : req.session.user._id
         })
 
         if(user.role === "user"){
