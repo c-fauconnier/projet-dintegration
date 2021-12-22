@@ -1,0 +1,10 @@
+#Suppression {
+  position: absolute;
+  margin-top: 4px;
+  justify-content: center;
+  background-color: rgb(194, 22, 22);
+}
+.profil {
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
