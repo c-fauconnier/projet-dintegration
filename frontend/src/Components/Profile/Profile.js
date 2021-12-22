@@ -14,9 +14,8 @@ export default class Profile extends Component {
   getPoints() {
     AuthService.getCurrentUser()
         .then((result) => {
-            this.setState({
-                points: result.data.points,
-            });
+            let points = result.data.points;
+            document.getElementById('points').innerHTML = points;
         });
   }
   componentDidMount() {
@@ -60,7 +59,7 @@ export default class Profile extends Component {
         </p>
         <p>
           <strong>Points client:</strong>{" "}
-          {points} 
+          <span id='points'>{currentUser.points}</span>
         </p>
       </div>
       <div className="d-flex justify-content-around">
