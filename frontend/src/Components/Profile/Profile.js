@@ -49,6 +49,7 @@ export default class Profile extends Component {
     const { currentUser } = this.state;
     const ColoredLine = ({ color }) => (
       <hr
+        className="hr-profile"
         style={{
           color,
           backgroundColor: color,

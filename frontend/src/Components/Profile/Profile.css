@@ -12,3 +12,8 @@
   width: 50%;
   margin: 2%;
 }
+
+hr-profile {
+  margin-top: none;
+  border-top: none;
+}
