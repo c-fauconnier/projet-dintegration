@@ -210,7 +210,7 @@ const userCtrl = {
 
         }
         catch(err) {
-            return res.status(500).json({msg : err.message});
+            return res.json({msg : "ERROR"})
         }
     }
 }

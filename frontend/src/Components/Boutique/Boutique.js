@@ -50,7 +50,6 @@ class Boutique extends Component {
 
     add_to_user = (e) =>{
         let nameOffer = e.currentTarget.name
-        console.log(nameOffer, e.currentTarget.id)
         axios.get(API+'user/add_offer/'+e.currentTarget.id,{
             withCredentials:true,
             })
