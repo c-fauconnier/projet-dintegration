@@ -15,9 +15,7 @@ export default class Profile extends Component {
   }
   getPoints() {
     AuthService.getCurrentUser()
-        .then((result) => {
-            let points = result.data.points;
-            document.getElementById('points').innerHTML = points;
+        .then(() => {
         });
   }
   componentDidMount() {
@@ -104,7 +102,7 @@ export default class Profile extends Component {
                     Historique des commandes
           </button>
         </div>
-        <div>
+        <div className="d-flex justify-content-center">
           <button
                 //type="submit"
                 className="btn btn-dark btn-bg"
