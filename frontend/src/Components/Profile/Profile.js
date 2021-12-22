@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "../services/auth.service";
 import '../Login/Login.css';
+import './Profile.css';
 
 export default class Profile extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class Profile extends Component {
 
     this.state = {
       currentUser: {},
+      isLoaded: false,
       points: 0
     };
   }
@@ -23,6 +25,7 @@ export default class Profile extends Component {
         .then((result) => {
             this.setState({
                 currentUser: result.data,
+                isLoaded:true
             });
         });
     this.intervalPoints = setInterval(this.getPoints, 1000);
@@ -31,7 +34,12 @@ export default class Profile extends Component {
   componentWillUnmount() {
     clearInterval(this.intervalPoints);
   }
-
+  delete() {
+    AuthService.deleteUser()
+      .then(() => {
+        window.location.href = "/Articles";
+      })
+  }
   disconnect() {
     AuthService.deleteCurrentUser()
       .then(() => {
@@ -40,9 +48,14 @@ export default class Profile extends Component {
   }
 
   render() {
-    const { currentUser, points } = this.state;
+    const { currentUser } = this.state;
+    if(!this.state.isLoaded){
+      return (
+        <div>chargement...</div>
+      )
+    }
     return (
-      <>
+      <div className="profil">
       <div className="container">
         <header className="jumbotron">
           <h3>
@@ -80,7 +93,15 @@ export default class Profile extends Component {
                     Historique des commandes
           </button>
         </div>
-      </>
+          <button
+                //type="submit"
+                className="btn btn-dark btn-bg"
+                id="Suppression"
+                onClick={this.delete}
+                >
+                    Supprimer mon compte
+          </button>
+      </div>
     );
   }
 }

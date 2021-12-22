@@ -13,7 +13,11 @@ const offersSchema = new mongoose.Schema({
         type: Number,
         required:  true,
     },
-    
+    value : {
+        type: Number,
+        required: false,
+        default: 0
+    }
     
 })
 module.exports = mongoose.model('Offer', offersSchema);
