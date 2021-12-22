@@ -7,6 +7,7 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import AuthService from "../services/auth.service";
 
+const API = 'https://bangoo-deploy.herokuapp.com/api/'
 
 class Boutique extends Component {
     constructor(props) {
@@ -22,10 +23,10 @@ class Boutique extends Component {
             .then((result) => {
                 let points = result.data.points;
                 document.getElementById('vosPoints').innerHTML = points;
-            });
+        });
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/offers')
+        axios.get(API+'offers')
             .then((result) => {
             this.setState({
                 isLoaded: true,
@@ -39,7 +40,9 @@ class Boutique extends Component {
                         userPoints: result.data.points,
                     });
                 });
-        this.intervalPoints = setInterval(this.getPoints, 1000);
+        if(this.state.userPoints !== 0.0){
+            this.intervalPoints = setInterval(this.getPoints, 1000);
+        }
     }
           
     componentWillUnmount() {
@@ -49,7 +52,7 @@ class Boutique extends Component {
     add_to_user = (e) =>{
         let nameOffer = e.currentTarget.name
         console.log(nameOffer, e.currentTarget.id)
-        axios.get('http://localhost:5000/api/user/add_offer/'+e.currentTarget.id,{
+        axios.get(API+'user/add_offer/'+e.currentTarget.id,{
             withCredentials:true,
             })
         .then(res => {
@@ -86,18 +89,6 @@ class Boutique extends Component {
     
     render() {
         const { items } = this.state;
-
-        const notify = (e) =>{
-        toast('L\'offre  '+e.currentTarget.name+' a été ajoutée à votre compte !', {
-                                        position: "top-right",
-                                        autoClose: 5000,
-                                        hideProgressBar: false,
-                                        closeOnClick: true,
-                                        pauseOnHover: false,
-                                        draggable: true,
-                                        progress: undefined,
-                                        });
-                                        }
 
         if (!this.state.isLoaded) {
           return <div>Chargement ... </div>;
