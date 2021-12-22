@@ -1,28 +1,29 @@
 const router = require('express').Router();
 const contactController = require('../controllers/contact.controller');
 const sendMail = require('../mail/Config');
+const authAdmin = require('../middleware/authAdmin');
 
 
 router.route('/')
-      .get(contactController.getRequests)
+      .get(authAdmin, contactController.getRequests)
       .post(contactController.createRequest)
 
 router.route('/:id')
-      .put(contactController.updateRequest)
+      .put(authAdmin, contactController.updateRequest)
 
 router.route('/status/:id')
-      .put(contactController.updateStatusRequest)
+      .put(authAdmin, contactController.updateStatusRequest)
 
 router.route('/open')
-      .get(contactController.getOpenRequests)
+      .get(authAdmin, contactController.getOpenRequests)
 
 router.route('/closed')
-      .get(contactController.getClosedRequests)
+      .get(authAdmin, contactController.getClosedRequests)
 
 router.route('/request/:id')
-      .get(contactController.getRequest)
+      .get(authAdmin, contactController.getRequest)
 
 router.route('/send')
-      .post(sendMail.sendMail)
+      .post(authAdmin, sendMail.sendMail)
 
 module.exports = router;
