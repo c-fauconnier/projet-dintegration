@@ -52,7 +52,7 @@ export default class Profile extends Component {
         style={{
           color,
           backgroundColor: color,
-          height: 5
+          height: 1
         }}
       />
     );
@@ -85,13 +85,11 @@ export default class Profile extends Component {
           <strong>Mes cadeaux</strong>{" "}
           <div>
             {currentUser.userOffers.map((offer) => (
-              <>
                 <p>
                 <div>{offer.name}</div>
                 <div>{offer.description}</div>
-                </p>
                 <ColoredLine color="grey"/>
-              </>
+                </p>
             ))}
           </div>
         </p>
