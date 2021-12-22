@@ -6,6 +6,7 @@
 .profil {
   margin-top: 10%;
   margin-bottom: 20%;
+  width: auto;
 }
 
 .profile-button {
@@ -25,8 +26,4 @@
 
 .description {
   font-size: 13px;
-}
-
-.inner {
-  width: auto !important;
 }
