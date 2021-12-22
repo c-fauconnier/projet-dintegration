@@ -7,8 +7,17 @@ export default class Profile extends Component {
     super(props);
 
     this.state = {
-      currentUser: {}
+      currentUser: {},
+      points: 0
     };
+  }
+  getPoints() {
+    AuthService.getCurrentUser()
+        .then((result) => {
+            this.setState({
+                points: result.data.points,
+            });
+        });
   }
   componentDidMount() {
     AuthService.getCurrentUser()
@@ -17,7 +26,13 @@ export default class Profile extends Component {
                 currentUser: result.data,
             });
         });
+    this.intervalPoints = setInterval(this.getPoints, 1000);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalPoints);
+  }
+
   disconnect() {
     AuthService.deleteCurrentUser()
       .then(() => {
@@ -26,7 +41,7 @@ export default class Profile extends Component {
   }
 
   render() {
-    const { currentUser } = this.state;
+    const { currentUser, points } = this.state;
     return (
       <>
       <div className="container">
@@ -45,7 +60,7 @@ export default class Profile extends Component {
         </p>
         <p>
           <strong>Points client:</strong>{" "}
-          {currentUser.points} 
+          {points} 
         </p>
       </div>
       <div className="d-flex justify-content-around">
