@@ -98,7 +98,7 @@ export default class Profile extends Component {
       <div className="d-flex justify-content-around">
         <button
                 //type="submit"
-                className="btn btn-dark btn-bg"
+                className="btn btn-dark btn-bg profile-button"
                 id="Déconnexion"
                 onClick={this.disconnect}
                 >
@@ -106,7 +106,7 @@ export default class Profile extends Component {
           </button>
           <button
                 //type="submit"
-                className="btn btn-dark btn-bg"
+                className="btn btn-dark btn-bg profile-button"
                 id="Historique"
                 onClick={this.disconnect}
                 >
@@ -116,7 +116,7 @@ export default class Profile extends Component {
         <div className="d-flex justify-content-center">
           <button
                 //type="submit"
-                className="btn btn-dark btn-bg"
+                className="btn btn-dark btn-bg profile-button"
                 id="Suppression"
                 onClick={this.delete}
                 >
