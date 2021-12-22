@@ -87,7 +87,7 @@ export default class Profile extends Component {
           <div>
             {currentUser.userOffers.map((offer) => (
                 <p>
-                <div className="title">{offer.name}</div>
+                <div className="title-coupon">{offer.name}</div>
                 <div className="description"><i>{offer.description}</i></div>
                 <ColoredLine color="grey"/>
                 </p>

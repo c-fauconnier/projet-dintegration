@@ -63,18 +63,12 @@ function CheckoutForm() {
     const order = {name: state.name, email: state.email, token: state.token}
     console.log(order)
     axios.get(API+'/purge',{
-            withCredentials:true,
-            }
-        )
-      .then((res) => console.log('Order posted'),
-      )
-      .catch(err => {});
+      withCredentials:true,
+    })
     axios.post(API+'/checkout', order,{
       withCredentials: true,
-    },
-    );
-
-    history.push('/')
+    },);
+    history.push('/Success')
   };
 
   return (

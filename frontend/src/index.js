@@ -20,6 +20,7 @@ import Boutique from "./Components/Boutique/Boutique";
 import ContactAdmin from './Components/Contact/ContactAdmin';
 import Checkout from './Components/Cart/Checkout';
 import Vendeurs from './Components/Vendeurs/Vendeurs';
+import ConfirmPayment from './Components/Cart/ConfirmPayment';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -31,6 +32,7 @@ ReactDOM.render(
           <Route path="/Boutique" component={Boutique} />
           <Route path="/Vendeurs" component={Vendeurs} />
           <Route path="/Checkout" component={Checkout}/>
+          <Route path='/Success' component={ConfirmPayment}/>
           <Route path="/Contact" component={Contact} />
           <Route path="/GPU" component={GPU}/>
           <Route path="/Panier" component={Cart} />

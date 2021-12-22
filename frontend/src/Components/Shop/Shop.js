@@ -95,6 +95,9 @@ class Shop extends Component {
                     </li>
                     ))}
                     </ul>
+                    <div className='box my-3'>
+                        <a href="/Panier" id="goToCart" className="col-lg-7 text-center btn btn-outline-success ">Aller au panier</a>
+                    </div>
                     </div>
                 </div>
             </div>

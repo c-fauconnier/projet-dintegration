@@ -69,12 +69,14 @@ router.get('/purge', function (req, res){
 /** Routes pour le paiement */
 
 router.post('/checkout', function(req, res, next) {
+
     var cart = new Cart(req.session.cart);
+
     var stripe = require("stripe")(
         "sk_test_51K7oKVAmHmiFCRWpZZqifR760cN7SAfI4aoP156dZfRJK9JPSIPsXVNV4yFnfA1IsorBsqkm3WhMz1PuJ06YFVC100HtJImrYx"
     );
     stripe.charges.create({
-        amount: cart.totalPrice,
+        amount: cart.totalPrice*100,
         currency: "eur",
         source: req.body.token, // obtained with Stripe.js
         description: "Test Charge"
@@ -83,12 +85,31 @@ router.post('/checkout', function(req, res, next) {
         var order = new Order({
             cart: cart,
             name: req.body.name,
-            paymentId: req.body.token
+            paymentId: req.body.token,
+            email: req.body.email,
         });
+        for(let i in req.session.cart.items) {
+            let article = req.session.cart.items[i];
+            let stock = article.item.stock;
+            let qty = article.qty;
+            console.log("voici l'item " + i, article.item._id)
+            console.log('test' + article)
+            Product.findByIdAndUpdate(
+                article.item._id, {
+                    stock : stock - qty
+                }
+                ,
+                function (err, docs) {
+                    if (err){
+                        console.log(err)
+                    }
+                    else{
+                        console.log("Updated User : ", docs);
+                    }
+                });
+        }
         req.session.cart = {}
         order.save();
-
-
     });
 });
 

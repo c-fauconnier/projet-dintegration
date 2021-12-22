@@ -67,16 +67,16 @@ th {
 }
 /* CSS pour Stripe*/
 .StripeElement {
-  margin-top:1em;
-  margin-left:0.5em;
-  margin-right : 32em;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  margin-right: 32em;
   position: relative;
   height: 40px;
   padding: 10px;
   width: 100%;
   color: #32325d;
   background-color: white;
-  border: 2px  gray;
+  border: 2px gray;
   border-radius: 4px;
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
@@ -85,6 +85,7 @@ th {
 .StripeElement--focus {
   box-shadow: 0 1px 3px 0 #cfd7df;
 }
+
 .StripeElement--invalid {
   border-color: #fa755a;
 }
@@ -93,18 +94,11 @@ th {
 }
 
 /* CSS pour le form */
-#btnPay {
-margin-top:1em;
-padding-left : 7em;
-padding-right : 7em;
-margin-left: 7em;
-}
-
 
 .input-wrapper {
   position: relative;
   margin: 20px auto;
-  margin-top : 1em;
+  margin-top: 1em;
 }
 .form-control cardSection {
   display: block;
@@ -121,9 +115,11 @@ margin-left: 7em;
   box-sizing: border-box;
   font-weight: 500;
 }
+
 .form-control:focus {
   border: 1px solid #2c7ac9;
 }
+
 .control-label {
   display: block;
   position: absolute;
@@ -132,4 +128,52 @@ margin-left: 7em;
   color: #5d5d5d;
   transition: 0.2s ease-in-out transform;
   font-size: 12px;
+}
+
+.la {
+  text-align: center;
+  background: #ffffff;
+  display: flex;
+}
+
+#btnPay,
+#Back {
+  margin-top: 10px;
+}
+#btnPay {
+  float: right;
+}
+
+#input {
+  margin-top: 20px;
+}
+
+.home {
+  text-align: left;
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  background-image: url("../../img/femme.jpg");
+  background-size: cover;
+}
+
+.container-success {
+  background-color: rgb(160, 233, 178);
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 10px;
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 1.2em;
+  border: solid 1px rgb(36, 34, 34);
+}
+
+.center {
+  text-align: center;
+}
+
+#h1 {
+  text-align: center;
 }
