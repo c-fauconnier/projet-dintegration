@@ -71,6 +71,10 @@ export default class Profile extends Component {
           {currentUser.role}
         </p>
         <p>
+          <strong>Points:</strong>{" "}
+          {currentUser.points}
+        </p>
+        <p>
           <strong>Mes cadeaux</strong>{" "}
           <div>
             {currentUser.userOffers.map((offer) => (
