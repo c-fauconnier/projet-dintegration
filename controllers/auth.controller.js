@@ -150,7 +150,7 @@ const userCtrl = {
     },
     infos: async(req,res,next) =>{
         try{
-            const userDB = await UserModel.findById(req.user.id);
+            const userDB = await UserModel.findById(req.session.user._id);
             req.session.user = userDB;
             let user = req.session.user;
             return res.json(user);
