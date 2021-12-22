@@ -66,17 +66,17 @@ class Contact extends Component {
                         </div>
                         <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
                                 <div class="form-group label-floating">
-                                    <label class="control-label" for="email">Email</label>
+                                    <label class="control-label" for="email">Email</label>Email
                                     <input class="form-control" id="email" type="email" name="email" required data-error="Please enter your Email"></input>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Sujet</label>
+                                    <label class="control-label">Sujet</label>Sujet
                                     <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject"></input>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group label-floating">
-                                    <label for="message" class="control-label">Message</label>
+                                    <label for="message" class="control-label">Message</label>Message
                                     <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>

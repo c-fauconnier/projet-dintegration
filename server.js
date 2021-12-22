@@ -18,7 +18,7 @@ const app = express()
 
 const path = require('path')
 app.use(express.static(path.resolve(__dirname, "./frontend/build")));
-
+app.enable('trust proxy')
 app.use(flash());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -43,7 +43,14 @@ app.use(function(req,res,next) {
   res.locals.session = req.session;
   next();
 })
+app.use(function(request, response, next) {
 
+    if (process.env.NODE_ENV != 'development' && !request.secure) {
+       return response.redirect("https://" + request.headers.host + request.url);
+    }
+
+    next();
+})
 // routes
 
 app.use('/api/user', userRoutes);

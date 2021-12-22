@@ -116,14 +116,13 @@ export default class SignUp extends Component {
 
                 <div className="form-group">
                     <div className="custom-control custom-checkbox">
-                        <Input type="checkbox" className="custom-control-input" id="customCheck1" required/>
+                        <input type="checkbox" className="custom-control-input" id="customCheck1" required/>
                         <label className="custom-control-label" htmlFor="customCheck1">En cliquant ici, vous acceptez notre <a href="/GPU">GPU</a> </label>
                     </div>
                 </div>
                 <input type="hidden" name="_token" ></input>
 
                 <button 
-
                 className="btn btn-dark btn-lg btn-block register">
                     S'inscrire
                 </button>
