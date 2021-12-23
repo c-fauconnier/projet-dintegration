@@ -76,9 +76,9 @@ export default class BarNav extends Component {
                         <Nav.Item><NavLink activeClassName="active" className="text-dark nav-link px-5" exact to={"/Boutique"}>Boutique</NavLink></Nav.Item>
                         </Nav>
                         <Nav className="mx-5">
-                        <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Panier"} ><img src={basket} width="37px" alt="basket" className="mx-5"/></NavLink></Nav.Item>
                         {currentUser && (
                             <div className="navbar-nav ml-auto">
+                                <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Panier"} ><img src={basket} width="37px" alt="basket" className="mx-5"/></NavLink></Nav.Item>
                                 <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Profile"} ><img src={connected} width="37px" alt="account" className="mx-5"/></NavLink></Nav.Item>
                                 
                             <li className="nav-item">
@@ -114,6 +114,7 @@ export default class BarNav extends Component {
                         )}  
                         {isLogged === false &&(
                             <div className="navbar-nav ml-auto">
+                                <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Panier"} ><img src={basket} width="37px" alt="basket" className="mx-5"/></NavLink></Nav.Item>
                                 <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Login"} ><img src={account} width="37px" alt="account" className="mx-5"/></NavLink></Nav.Item>
                                 <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Register"}><img src={registerForm} width="37px" alt="account" className="mx-5"/></NavLink></Nav.Item>
                             </div>
