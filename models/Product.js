@@ -26,11 +26,6 @@ const productSchema = new mongoose.Schema({
     image: {
         type: String, 
         required: true 
-    },
-    barcode: {
-        type: String,
-        required: false,
-        default: null
     }
     
 });

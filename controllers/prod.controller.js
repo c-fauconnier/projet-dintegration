@@ -24,7 +24,7 @@ const productCtrl = {
             if(!image) return res.status(400).json({msg : "No image uploaded"})
 
             const newProduct = new ProductModel({
-                name, description: description.toLowerCase(), brand, stock, price, image, barcode
+                name, description: description.toLowerCase(), brand, stock, price, image
             })
             await newProduct.save()
             res.json({msg: "Created a product"})
