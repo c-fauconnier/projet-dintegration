@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 import AuthService from "../services/auth.service";
+import ContactAdmin from '../Contact/ContactAdmin';
 
 
 
@@ -90,6 +91,7 @@ export default class BarNav extends Component {
                         {currentAdmin ==="admin" && (
                             <div className="navbar-nav ml-auto">
                                 <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Produit"} >Produits</NavLink></Nav.Item>
+                                <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/ContactAdmin"} >Requêtes</NavLink></Nav.Item>
                                 
                             <li className="nav-item">
                                 <a href="/login" className="nav-link" onClick={this.logOut}>
@@ -101,7 +103,8 @@ export default class BarNav extends Component {
                         {currentSeller ==="seller" && (
                             <div className="navbar-nav ml-auto">
                                 <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Produit"} >Produits</NavLink></Nav.Item>
-                                
+                                <Nav.Item><NavLink activeClassName="active" className="nav-link" exact to={"/Profile"} ><img src={connected} width="37px" alt="account" className="mx-5"/></NavLink></Nav.Item>
+
                             <li className="nav-item">
                                 <a href="/login" className="nav-link" onClick={this.logOut}>
                                 <img src={exit} width="37px" alt="account" className="mx-5"/>
