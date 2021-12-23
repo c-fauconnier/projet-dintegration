@@ -118,7 +118,7 @@ export default class Profile extends Component {
                 //type="submit"
                 className="btn btn-dark btn-bg profile-button"
                 id="Suppression"
-                onClick={() => {if (window.confirm("Êtes-vous sûr de vouloir supprimer votre compte Bangoo?")) this.delete}}
+                onClick={() => {if (window.confirm("Êtes-vous sûr de vouloir supprimer votre compte Bangoo?")) {this.delete}}}
                 >
                     Supprimer mon compte
           </button>
